@@ -1,0 +1,37 @@
+version: '3.3'
+
+networks:
+  backstage_network:  # Define a custom network
+    driver: bridge
+
+services:
+  postgres:
+    image: postgres
+    container_name: postgres_container
+    environment:
+      POSTGRES_USER: backstage_user
+      POSTGRES_PASSWORD: backstage_pass
+      POSTGRES_DB: backstage_app
+    volumes:
+      - postgres_data:/var/lib/postgresql/data  # Use a named volume
+    networks:
+      - backstage_network  # Add postgres to the backstage network
+
+  backstage:
+    image: backstage
+    container_name: backstage
+    ports:
+      - "8089:7007"  # Expose Backstage publicly on port 7007
+    environment:
+      POSTGRES_HOST: postgres  # Refer to the postgres container by its service name
+      POSTGRES_PORT: 5432
+      POSTGRES_USER: backstage_user
+      POSTGRES_PASSWORD: backstage_pass
+      POSTGRES_DB: backstage_app
+    depends_on:
+      - postgres
+    networks:
+      - backstage_network  # Add backstage to the same network
+
+volumes:
+  postgres_data:  # Define the named volume for postgres
