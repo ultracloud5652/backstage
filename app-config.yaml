@@ -68,7 +68,6 @@ auth:
   providers:
     # See https://backstage.io/docs/auth/guest/provider
     guest: {}
-  providers:
     github:
       development:
         clientId: ${AUTH_GITHUB_CLIENT_ID}
