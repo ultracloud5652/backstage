@@ -27956,6 +27956,7 @@ __metadata:
   dependencies:
     "@backstage/cli": "npm:^0.28.0"
     "@backstage/e2e-test-utils": "npm:^0.1.1"
+    "@backstage/plugin-auth-backend-module-guest-provider": "npm:^0.2.1"
     "@playwright/test": "npm:^1.32.3"
     "@spotify/prettier-config": "npm:^12.0.0"
     node-gyp: "npm:^10.0.0"
