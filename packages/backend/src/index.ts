@@ -23,8 +23,8 @@ backend.add(import('@backstage/plugin-scaffolder-backend/alpha'));
 backend.add(import('@backstage/plugin-techdocs-backend/alpha'));
 
 // auth plugin
-backend.add(import('@backstage/plugin-auth-backend'));
-backend.add(import('@backstage/plugin-auth-backend-module-github-provider'));
+// backend.add(import('@backstage/plugin-auth-backend'));
+// backend.add(import('@backstage/plugin-auth-backend-module-github-provider'));
 
 // See https://backstage.io/docs/backend-system/building-backends/migrating#the-auth-plugin
 backend.add(import('@backstage/plugin-auth-backend-module-guest-provider'));
@@ -85,7 +85,7 @@ const customAuthResolver = createBackendModule({
                * "info" is the sign in result from the upstream (github here), and *
                * "ctx" contains useful utilities for token issuance etc.           *
                *********************************************************************/
-              comsole.log("ultracloud5652")
+              console.log("ultracloud5652")
               console.log(info);
               const { profile: { email } } = info;
             
